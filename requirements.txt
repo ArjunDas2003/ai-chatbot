@@ -1,0 +1,7 @@
+Flask
+python-dotenv
+google-generativeai
+Flask-Cors
+requests
+google-api-python-client
+spotipy

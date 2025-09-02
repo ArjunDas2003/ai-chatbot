@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Assistant Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --background-color: #0d0c1d;
+            --primary-purple: #8a2be2;
+            --secondary-purple: #4b0082;
+            --text-color: #e0e0e0;
+            --container-bg: rgba(20, 20, 40, 0.7);
+            --border-color: rgba(138, 43, 226, 0.4);
+        }
+        *, *::before, *::after {
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            font-size: 16px;
+            overflow-x: hidden;
+            position: relative;
+        }
+        .background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+        .wave {
+            content: ''; position: absolute; left: 50%; min-width: 300vw; min-height: 300vw;
+            background-color: var(--primary-purple); animation: rotate 15s linear infinite;
+        }
+        .wave.one { bottom: 15vh; border-radius: 45%; opacity: 0.1; }
+        .wave.two { bottom: 12vh; opacity: 0.15; border-radius: 47%; animation-duration: 17s; }
+        @keyframes rotate {
+            0% { transform: translate(-50%, 0) rotateZ(0deg); }
+            100% { transform: translate(-50%, 0) rotateZ(360deg); }
+        }
+        .particle {
+            position: absolute; border-radius: 50%; background: var(--primary-purple);
+            opacity: 0; animation: drift 20s infinite linear;
+        }
+        @keyframes drift {
+            from { transform: translateY(0) translateX(0); opacity: 0.7; }
+            to { transform: translateY(-110vh) translateX(20vw); opacity: 0; }
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10;
+            background: rgba(13, 12, 29, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+        }
+        .logo { font-size: 1.5rem; font-weight: 700; color: white; }
+        .nav-buttons a {
+            background: var(--primary-purple);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.2s ease;
+        }
+        .nav-buttons a:hover { background: var(--secondary-purple); }
+
+        .section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 5rem 0;
+        }
+        
+        h1 {
+            font-size: 3.8rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        .section p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 2rem auto;
+            opacity: 0.8;
+            line-height: 1.7;
+        }
+        .cta-button {
+            background: var(--primary-purple);
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: background 0.2s ease;
+            display: inline-block;
+        }
+        .cta-button:hover { background: var(--secondary-purple); }
+
+        .content-box {
+            background: var(--container-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 4rem;
+        }
+        h2 {
+            font-size: 2.5rem;
+            color: white;
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+        }
+        footer {
+            width: 100%;
+            text-align: center;
+            padding-top: 4rem;
+            opacity: 0.6;
+        }
+
+        @media(max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .section { padding: 4rem 1rem; }
+            .content-box { padding: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-animation"></div>
+
+    <header>
+        <div class="container header-content">
+            <div class="logo">AI Assistant</div>
+            <div class="nav-buttons">
+                <a href="/login">Get Started</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section hero-section">
+            <div class="container">
+                <h1>Your Digital Mind, Awakened.</h1>
+                <p>Experience a new era of AI assistants. Play media, get real-time information, and have natural conversations with an AI that remembers your chat history.</p>
+                <a href="/chatbot" class="cta-button">Go to Chatbot</a>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="content-box">
+                    <h2>Why This Project?</h2>
+                    <p>Have you ever felt like you're talking to a wall when using a voice assistant? You ask it to play a song, then say "play another," and it has no clue what you're talking about! We’ve all been there, and that’s the big idea that sparked this whole adventure. We dreamed of an AI that was less like a forgetful robot and more like a helpful friend—one that actually listens and remembers the conversation. This project is our answer to that dream, built to provide a truly intelligent assistant that makes daily digital life feel less like a chore and more like a breeze.</p>
+                    <p>Our mission is simple: to put a little AI magic in everyone's pocket. We're solving the problem of disconnected commands by creating a persistent, conversation-aware AI that learns from your chat. Whether you're juggling tasks, looking for entertainment, or just need a quick answer, your assistant is here to help without missing a beat. It's about transforming technology from a cold tool into a warm, reliable companion that genuinely makes your day easier and a whole lot more fun!</p>
+                </div>
+            </div>
+        </section>
+    
+        <section class="section">
+            <div class="container">
+                <div class="content-box">
+                    <h2>Developer Info</h2>
+                    <p>Say hello to the brilliant minds behind the machine! This AI Assistant was brought to life by the dynamic trio of Person1, Person2, and Person3, a team of enthusiastic and curious students from Amrita Vidyalayam. Fueled by a galaxy of dreams and an ocean of coffee, they embarked on this journey not just as a project, but as a grand quest into the vibrant world of artificial intelligence. They combined their unique talents in coding, design, and AI logic to build something they believe can truly make a difference in how we interact with technology.</p>
+                    <p>As aspiring innovators, this project is their bold declaration to the future. It’s a testament to countless hours of learning, debugging, and creative brainstorming, all driven by a shared passion for building things that are both incredibly smart and wonderfully simple to use. They poured their hearts into creating an AI that feels powerful yet accessible, and they are absolutely thrilled to share their creation with the world. This is their first big step, and they hope it brings a little bit of ease, joy, and futuristic fun into your life!</p>
+                </div>
+                <footer>
+                    <p>&copy; 2025 AI Assistant Project. All rights reserved.</p>
+                </footer>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function createParticles() {
+            const container = document.querySelector('.background-animation');
+            if (!container) return;
+            // Add waves
+            const wave1 = document.createElement('div');
+            wave1.className = 'wave one';
+            const wave2 = document.createElement('div');
+            wave2.className = 'wave two';
+            container.appendChild(wave1);
+            container.appendChild(wave2);
+
+            const particleCount = 50;
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                const size = Math.random() * 3 + 1;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.top = `${Math.random() * 100}vh`;
+                particle.style.left = `${Math.random() * 100}vw`;
+                particle.style.animationDuration = `${Math.random() * 15 + 10}s`;
+                particle.style.animationDelay = `${Math.random() * 10}s`;
+                container.appendChild(particle);
+            }
+        }
+        window.addEventListener('load', createParticles);
+    </script>
+</body>
+</html>
+

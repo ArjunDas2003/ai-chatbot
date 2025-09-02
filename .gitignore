@@ -1,0 +1,10 @@
+
+# Python virtual environment
+venv/
+__pycache__/
+
+# Cache files (e.g., from spotipy)
+.cache
+
+# SQLite Database
+chatbot.db
